@@ -5,7 +5,12 @@ import java.util.Random;
 public class MoreArrayFun {
 	// 1. Create a main method to test the other methods you write.
 	public static void main(String[] args) {
-
+		String[] strings = {"hello", "my","name","is","Tygan"};
+		MoreArrayFun a = new MoreArrayFun();
+		a.printStrings(strings);
+		a.printStringBack(strings);
+		a.printStringOther(strings);
+		a.printStringRandom(strings);
 	}
 
 	// 2. Write a method that takes an array of Strings and prints all the Strings
@@ -38,15 +43,18 @@ public class MoreArrayFun {
 	// in a completely random order. Almost every run of the program should result
 	// in a different order.
 	public void printStringRandom(String[] arr) {
-		int[] rand = new int[arr.length];
 		Random r = new Random();
-		for (int i = 0; i < rand.length; i++) {
-			int f = r.nextInt(arr.length);
-			for (int j = 0; j < i; j++) {
-
-			}
+		for (int i = 0; i < arr.length; i++) {
+			int random = r.nextInt(arr.length - 1);
+			String temp = arr[i];
+			arr[i] = arr[random];
+			arr[random] = temp;
+			
+			
 		}
-
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 
 }
